@@ -141,6 +141,3 @@ The syntax of FIXE in Backus-Naur Form
                         | seq <?????INIT_IDENTIFIER????> to <expression> by <expression>
 
 <jump-statement> ::= return {<expression>}? ;
-
-
-This grammar was adapted from Section A13 of The C programming language, 2nd edition, by Brian W. Kernighan and Dennis M. Ritchie,Prentice Hall, 1988. 
