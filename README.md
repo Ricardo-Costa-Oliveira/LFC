@@ -40,52 +40,47 @@ Define-se diferentes momentos de realizacao que descrevemos a seguir e para os q
 
 
 
-3.1    Primeira etapa
-###
-Data limite de realizacao:  31 de Outubro de 2015.
-####
+###3.1    Primeira etapa
+	
+####Data limite de realizacao:  31 de Outubro de 2015.
+	
 Espera-se nesta etapa que o grupo estude os exemplos de programas da linguagem alvo.  Estes exemplos sao representativos da linguagem de programacao alvo, a linguagem FIXE, e deverao poder ser analisados pelas solucoes implementadas neste trabalho.
 Na  sequencia  do  estudo,  espera-se  que  o  grupo  define  cuidadosamente a gramatica (formato BNF) da linguagem com base nestes exemplos.  Esta gramatica constitui o entregavel para esta etapa.
 
 
 
-3.2    Segunda etapa
-###
-Data limite de realizacao:  13 de Novembro de 2015.
-####
+###3.2    Segunda etapa
+	
+####Data limite de realizacao:  13 de Novembro de 2015.
+	
 Espera-se  nesta  etapa  que  seja  construido  o  analisador  lexico.   O lexer resultante constitui o entregavel para esta etapa.
 
 
 
-3.3    Terceira etapa
-###
-Data limite de realizacao:  4 de Dezembro de 2015.
-####
-Espera-se  nesta  etapa  que  seja  construido  o  analisador  sintactico  com-
-pleto, com o devido processamento dos erros sintacticos.  O
-parser
-resultante
-constitui o entregavel para esta etapa.
+###3.3    Terceira etapa
+	
+####Data limite de realizacao:  4 de Dezembro de 2015.
+	
+Espera-se  nesta  etapa  que  seja  construido  o  analisador  sintactico  completo, com o devido processamento dos erros sintacticos.  O parser resultante constitui o entregavel para esta etapa.
 
 
 
-3.4    Quarta etapa
-###
-Data limite de realizacao:  18 de Dezembro de 2015.
-####
-Espera-se nesta etapa que o o analisador sintactico seja extendido com a  capacidade  em  construir  uma  AST  e  uma  tabela  de  simbolos.   O
-parser extendido resultante constitui o entregavel para esta etapa.
+###3.4    Quarta etapa
+	
+####Data limite de realizacao:  18 de Dezembro de 2015.
+	
+Espera-se nesta etapa que o o analisador sintactico seja extendido com a  capacidade  em  construir  uma  AST  e  uma  tabela  de  simbolos.   O parser extendido resultante constitui o entregavel para esta etapa.
 
 
 
-3.5    Quinta etapa
-###
-Data limite de realizacao:  8 de Janeiro de 2016.
-####
-Espera-se nesta etapa que seja construido o analisador semiantico para a linguagem FIXE. Este analisador verifica a tipagem e o iambito (scope) dos
-simbolos dos programa analisado.  Espera-se igualmente que uma analise de dependiencia  dos  simbolos  seja  conduzida  e  que  esta  resulte  na  geracao  de
-um grafo de dependiencia na forma de um ficheiro DOT produzido na saida desta analise.
-4    Entrega do trabalho
+###3.5    Quinta etapa
+
+####Data limite de realizacao:  8 de Janeiro de 2016.
+
+Espera-se nesta etapa que seja construido o analisador semiantico para a linguagem FIXE. Este analisador verifica a tipagem e o iambito (scope) dos simbolos dos programa analisado.  Espera-se igualmente que uma analise de dependiencia  dos  simbolos  seja  conduzida  e  que  esta  resulte  na  geracao  de um grafo de dependiencia na forma de um ficheiro DOT produzido na saida desta analise.
+
+###4    Entrega do trabalho
+	
 O  trabalho  deve  ser  entregue  num  arquivo  tar  comprimido  (nome.tgz)  em que nome e o identificador do vosso grupo.  este arquivo deve conter todos os ficheiros fontes necessarios a compilacao assim como um Makefile completo (as entradas all e clean devem estar presentes).
 Este arquivo devera igualmente conter o relatorio que descreve o trabalho feito,  as  escolhas  (de  desenho,  etc.)   tomadas,  a  documentacao  do  codigo e  o  manual  do  utilizador.
 
