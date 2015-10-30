@@ -79,8 +79,8 @@ Espera-se nesta etapa que o o analisador sintactico seja extendido com a  capaci
 
 Espera-se nesta etapa que seja construido o analisador semiantico para a linguagem FIXE. Este analisador verifica a tipagem e o iambito (scope) dos simbolos dos programa analisado.  Espera-se igualmente que uma analise de dependiencia  dos  simbolos  seja  conduzida  e  que  esta  resulte  na  geracao  de um grafo de dependiencia na forma de um ficheiro DOT produzido na saida desta analise.
 
-###4    Entrega do trabalho
-	
+4    Entrega do trabalho
+------	
 O  trabalho  deve  ser  entregue  num  arquivo  tar  comprimido  (nome.tgz)  em que nome e o identificador do vosso grupo.  este arquivo deve conter todos os ficheiros fontes necessarios a compilacao assim como um Makefile completo (as entradas all e clean devem estar presentes).
 Este arquivo devera igualmente conter o relatorio que descreve o trabalho feito,  as  escolhas  (de  desenho,  etc.)   tomadas,  a  documentacao  do  codigo e  o  manual  do  utilizador.
 
