@@ -22,8 +22,8 @@ A utilizacao do front-end sobre uma programa escrito na linguagem de programacao
 Nesta parte pretende-se que seja denida a (gramatica para a) linguagem de  programacao  e  construdo  um  pequeno front-end para  esta  linguagem.
 Assim pretende-se:
 
-1. O lexico e a gramatica (formato BNF) da linguagem denida.
-[Read more words!](./The syntax of FIXE in BNF.txt)
+1.[O lexico e a gramatica (formato BNF) da linguagem denida.](./The syntax of FIXE in BNF.txt)
+
 1. Um analisador lexico para esta linguagem.
 
 1. Um analisador sintatico.
