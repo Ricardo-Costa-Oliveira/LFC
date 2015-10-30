@@ -18,15 +18,15 @@ A utilizacao do front-end sobre uma programa escrito na linguagem de programacao
 Nesta parte pretende-se que seja denida a (gramatica para a) linguagem de  programacao  e  construdo  um  pequeno front-end para  esta  linguagem.
 Assim pretende-se:
 
-	O lexico e a gramatica (formato BNF) da linguagem denida.
+1. O lexico e a gramatica (formato BNF) da linguagem denida.
 
-	Um analisador lexico para esta linguagem.
+1. Um analisador lexico para esta linguagem.
 
-	Um analisador sintatico.
+1. Um analisador sintatico.
 
-	A  versao  preliminar  de  um  analisador  semantico  que  construa  uma arvore  de  sintaxe  abstracta enfeitada e  uma  tabela  de  smbolo  que permitam  uma  analise  preliminar  da  tipagem  e  a  execucao  do  passo seguinte.
+1. A  versao  preliminar  de  um  analisador  semantico  que  construa  uma arvore  de  sintaxe  abstracta enfeitada e  uma  tabela  de  smbolo  que permitam  uma  analise  preliminar  da  tipagem  e  a  execucao  do  passo seguinte.
 
-	Um tradutor da arvore de sintaxe abstracta para um cheiro DOT que espelha a estrutura (as dependencias dos smbolos de funcao entre si) do programa fonte.
+1. Um tradutor da arvore de sintaxe abstracta para um cheiro DOT que espelha a estrutura (as dependencias dos smbolos de funcao entre si) do programa fonte.
 
 
 
