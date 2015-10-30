@@ -23,7 +23,7 @@ Nesta parte pretende-se que seja denida a (gramatica para a) linguagem de  progr
 Assim pretende-se:
 
 1. O lexico e a gramatica (formato BNF) da linguagem denida.
-
+[Read more words!](./The syntax of FIXE in BNF.txt)
 1. Um analisador lexico para esta linguagem.
 
 1. Um analisador sintatico.
