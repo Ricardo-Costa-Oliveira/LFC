@@ -1,6 +1,6 @@
 
 Trabalho de Processamento de Linguagens__
-|
+======
 Front-end do compilador para a linguagem de programacao FIXE e geracao de grafo de dependencia de funcoes de um programa (cod.  11567)__
 Departamento de Informatica__
 Universidade da Beira Interior__
