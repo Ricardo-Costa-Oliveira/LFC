@@ -1,15 +1,16 @@
 
-Trabalho de Processamento de Linguagens__
+Trabalho de Processamento de Linguagens
 ======
-Front-end do compilador para a linguagem de programacao FIXE e geracao de grafo de dependencia de funcoes de um programa (cod.  11567)__
-Departamento de Informatica__
-Universidade da Beira Interior__
-Ano lectivo 2015/2016__
-1    Introducao__
+Front-end do compilador para a linguagem de programacao FIXE e geracao de grafo de dependencia de funcoes de um programa (cod.  11567)
+Departamento de Informatica
+Universidade da Beira Interior
+Ano lectivo 2015/2016
+1    Introducao
+------
 Este trabalho e parte constituinte da avaliacao partica da Unidade Curricular de codigo 11567 designada por Processamento de Linguagens, na sua edicao de 2015-2016.__
 O  trabalho  visa  o  exercicio  dos  conceitos  e  das  tecnicas  basicas  de  desenho de processadores de linguagens e de compiladores expostos nas aulas da presente UC. Com tal este trabalho e estruturado em varias fases.  Estas diferentes fases visam ilustrar a utilizacao de tecnicas (e ferramentas computacionais associadas) de processamento de linguagens.  Em particular as tecnicas de analises lexica, sintactica e semantica.__
 __
-2    Descricao geral do trabalho__
+2    Descricao geral do trabalho
 O objectivo geral e a construcao de um front-end simples para uma pequena linguagem de programacao (i.e.  que envolve as analises lexicas, sintacticas e semanticas classicas), a linguagem FIXE. Esta linguagem e uma DSL especializada no desenvolvimento de aplicacoes de seguranca/criptogracas.__
 A utilizacao do front-end sobre uma programa escrito na linguagem de programacao alvo devera resultar numa analise/procura/listagem completa dos erros de programacao que estas analises sao capazes de detectar, e caso o programa auscultado o permite (i.e.  estar sem erros) a producao em saida de um grafo de dependencia descrito na linguagem DOT.
 Nesta parte pretende-se que seja denida a (gramatica para a) linguagem de  programacao  e  construdo  um  pequeno front-end para  esta  linguagem.
