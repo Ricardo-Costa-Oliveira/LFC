@@ -5,88 +5,79 @@ The syntax of FIXE in Backus-Naur Form
 <external-declaration> ::= <function-definition>
                          | <declaration>
 
-<function-definition> ::= {<declaration-specifier>}* <declarator> {<declaration>}* <compound-statement>
+<function-definition> ::= def <identifier> <declarator> : <declaration-specifier-list> <compound-statement>
+
+<declaration-specifier-list> ::= <declaration-specifier>
+                               | <declaration-specifier-list> , <declaration-specifier> , ...
 
 <declaration-specifier> ::= <storage-class-specifier>
                           | <type-specifier>
-                          | <type-qualifier>
 
-<storage-class-specifier> ::= 
+<storage-class-specifier> ::= register
+                            | typedef
 
 <type-specifier> ::= void
                    | int
-                   | unsigned
-                   | <struct-or-union-specifier>
-                   | <typedef-name>
+                   | bool
+                   | <unsigned>
+                   | <struct-specifier>
+                   | <vector-specifier>
 
-<struct-or-union-specifier> ::= struct [ <identifier> { {<struct-declaration>}+ } ]
-                              | <struct-or-union> { {<struct-declaration>}+ }
-                              | <struct-or-union> <identifier>
+<vector-specifier> := vector [<expression>] of <type-specifier>
+                    | <vector-specifier> of vector [<expression>] of <type-specifier>
 
+<unsigned> := unsigned bits [<expression>]
 
-<struct-or-union> ::= struct
+<struct-specifier> ::= typedef <identifier> <assigment-operator> struct [ <statement> ]
 
-<struct-declaration> ::= 
+<declarator> ::= <direct-declarator> 
 
-<specifier-qualifier> ::= 
+<direct-declarator> ::= <identifier>
+                      | (<declarator>) 
+                      | <direct-declarator>  (<parameter-type-list>) ------> para a passagem de argumentos a funcao
+                      | <direct-declarator>  ({<identifier>}*) ------> para a passagem de argumentos a funcao do tipo void
+                      | <direct-declarator>  (<constant-expression>) ------> para a passagem de argumentos a funcao do tipo void
 
-<struct-declarator-list> ::= 
+<constant-expression> ::= <logical-or-expression>
 
-<struct-declarator> ::= 
+<logical-or-expression> ::= <logical-and-expression>
+                          | <logical-or-expression> || <logical-and-expression>
 
-<declarator> ::= 
+<logical-and-expression> ::= <relational-expression>
+                            | <logical-and-expression> && <relational-expression>
 
-<pointer> ::= * 
+<relational-expression> ::= <additive-expression>
+                          | <relational-expression> < <additive-expression> 
+                          | <relational-expression> > <additive-expression> 
 
-<type-qualifier> ::= const
-                   | volatile ????
+<additive-expression> ::= <multiplicative-expression>
+                        | <additive-expression> + <multiplicative-expression>
+                        | <additive-expression> - <multiplicative-expression>
 
-<direct-declarator> ::=
+<multiplicative-expression> ::= <cast-expression>
+                              | <multiplicative-expression> * <cast-expression>
+                              | <multiplicative-expression> / <cast-expression>
 
-<constant-expression> ::= <conditional-expression>
+<cast-expression> ::= <unary-expression>
+                    | (<type-specifier>) <cast-expression>
 
-<conditional-expression> ::= 
-
-<logical-or-expression> ::= 
-
-<logical-and-expression> ::= 
-
-<inclusive-or-expression> ::= 
-
-<exclusive-or-expression> ::= 
-
-<and-expression> ::= 
-
-<equality-expression> ::= 
-
-<relational-expression> ::= 
-
-<shift-expression> ::= 
-
-<additive-expression> ::= 
-
-<multiplicative-expression> ::=
-
-<cast-expression> ::= 
-
-<unary-expression> ::= 
-
-<postfix-expression> ::= 
+<unary-expression> ::= <postfix-expression>
+	
+<postfix-expression> ::= <primary-expression> ---> cast (int)i
+                       | <postfix-expression> <expression> ---> cast (int) i*5
+                       | <postfix-expression> . <identifier> ---> aceder a variaveis da estrutura
 
 <primary-expression> ::= <identifier>
                        | <constant>
-                       | <string> ?????
                        | ( <expression> )
 
 <constant> ::= <integer-constant>
-             | <character-constant>   ?????
-             | <floating-constant>    ?????
-             | <enumeration-constant> ?????
+             | <boolean-constant>
 
 <expression> ::= <assignment-expression>
                | <expression> , <assignment-expression>
 
-<assignment-expression> ::= <conditional-expression>
+<assignment-expression> ::= <constant-expression>
                           | <unary-expression> <assignment-operator> <assignment-expression>
 
 <assignment-operator> ::= :=
@@ -96,48 +87,41 @@ The syntax of FIXE in Backus-Naur Form
                    | -
                    | !
 
-<type-name> ::= 
-
 <parameter-type-list> ::= <parameter-list>
                         | <parameter-list> , ...
-<parameter-list> ::= 
 
-<parameter-declaration> ::= 
+<parameter-list> ::= <parameter-declaration>
+                   | <parameter-list> , <parameter-declaration>
 
-<abstract-declarator> ::= 
+<parameter-declaration> ::= <declarator> : <declaration-specifier> ----> a : int
+                          | <declarator>
 
-<direct-abstract-declarator> ::=  
 
-<enum-specifier> ::= 
+<typedef-name> ::= <identifier>
 
-<enumerator-list> ::= 
+<declaration> ::= def <identifier> {<declaration-specifier>} {<init-declarator>}*
 
-<enumerator> ::= 
+<init-declarator> ::= <declarator>
+                    | <declarator> := <initializer>
 
-<typedef-name> ::= 
+<initializer> ::= <assignment-expression>
+                | { <initializer-list> }
+                | { <initializer-list> , }
 
-<declaration> ::= 
+<initializer-list> ::= <initializer>
+                     | <initializer-list> , <initializer>
 
-<init-declarator> ::= 
+<compound-statement> ::= { {<declaration>}* {<statement>}* }
 
-<initializer> ::= 
-
-<initializer-list> ::= 
-
-<compound-statement> ::= 
-
-<statement> ::= <expression-statement> ?????
-              | <compound-statement> ?????
+<statement> ::= <compound-statement> 
               | <selection-statement>
               | <iteration-statement>
               | <jump-statement>
-
-<expression-statement> ::= 
 
 <selection-statement> ::= if ( <expression> ) <statement>
                         | if ( <expression> ) <statement> else <statement>
 
 <iteration-statement> ::= while ( <expression> ) <statement>
-                        | seq <?????INIT_IDENTIFIER????> to <expression> by <expression>
+                        | seq <init-declarator> to <expression> by <expression>
 
 <jump-statement> ::= return {<expression>}? ;
