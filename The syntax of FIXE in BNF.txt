@@ -1,12 +1,13 @@
 The syntax of FIXE in Backus-Naur Form
 
-?   -> means option
-[]  -> brackets enclose one or more optional items
-{}  -> enclose two or more items, one of wich is required
-|   -> separates alternatives within brackets or braces
-... -> show that the preceding element can be repeated
+	?   -> means option
+	[]  -> brackets enclose one or more optional items
+	{}  -> enclose two or more items, one of wich is required
+	|   -> separates alternatives within brackets or braces
+	... -> show that the preceding element can be repeated
 
-
+Based on the syntax of C in Backus-Naur Form
+https://cs.wmich.edu/~gupta/teaching/cs4850/sumII06/The%20syntax%20of%20C%20in%20Backus-Naur%20form.htm
 
 <translation-unit> ::= {<external-declaration>}*
 
