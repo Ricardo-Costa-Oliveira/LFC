@@ -9,20 +9,26 @@
 	   "camllex: transition table overflow, automaton is too big"
 	*)
 	let create_hastable size init = 
-		let tb1 = Hashtb1.create size in
-		List.iter (fun (key, data) -> Hashtb1.add tb1 key data ) init;
-
+		let tbl = Hashtbl.create size in
+		List.iter (fun (key, data) -> Hashtbl.add tbl key data ) init;
+tbl
 	type token = 
 		| IF
 		| THEN
+		| ELSE
+		| VECTOR
 		| INT of int
 		| ID of string
+		| CHAR of char
+		| OP of char
+		| ASSIGN of string
 		
 
 	let keyword_table = 
 		create_hastable 8 [
 		    ("if", IF);
 		    ("then", THEN);
+		    ("vector", VECTOR)
 		]
 }
 (* definitions section *)
@@ -32,22 +38,21 @@
 
 (* rules section *)
 
-	rule FIXE = parse 
+	rule fixe = parse 
 		| digit+ as inum (* integer number *)
 			{ let num = int_of_string inum in
 			  printf "integer: %s (%d)\n" inum num;
 			  INT num
-			  FIXE lexbuf (* to continue recursion *)
 			}
 		| id as word
 			{ try
-			  let token = Hashtb1.find keyword_table word in
+			let token = Hashtbl.find keyword_table word in
 			  printf "keyword: %s\n" word;
 			  token
 			  with Not_found ->
-			    printf "identifier (not found) %s\n" word;
+			    (* if not a keyword the is an identifier *)
+			    printf "identifier %s\n" word;
 			    ID word
-			  FIXE lexbuf (* to continue recursion *)
 			}
 		| '+'
 		| '-'
@@ -55,17 +60,17 @@
 		| '/' as op
 			{ printf "operator %c\n" op;
 			  OP op
-			  FIXE lexbuf (* to continue recursion *)
-			}
+			} 
+		| ":=" as assign
+			{ printf "assign %s\n" assign;
+			  ASSIGN assign
+			}     
 		| '{' [^ '\n']* '}' (* eat up one line comments *)
-			{ FIXE lexbuf (* to continue recursion *)
-			}
 		| [' ' '\t' '\n'] (* eat up whitespace *)
-			{ FIXE lexbuf }
+			{ fixe lexbuf }
 		| _ as c
 			{ printf "Unrecognized character %c\n" c;
 			  CHAR c
-			  FIXE lexbuf (* to continue recursion *)
 			}
 		| eof
 			{ raise End_of_file }
@@ -73,9 +78,11 @@
 (* trailer section *)
 
 {
+	
 	let rec parse lexbuf =
-		let token = FIXE lexbuf in
-		parse FIXE
+		let token = fixe lexbuf in
+		(* do nothing *)
+		parse lexbuf
 
 	let main () = 
 		let cin =
@@ -83,10 +90,10 @@
 			then open_in Sys.argv.(1)
 			else stdin
 		in
-		let lexbuf = Lexing.from channel cin in
+		let lexbuf = Lexing.from_channel cin in
 		try parse lexbuf
 		with End_of_file -> ()
 
 	let _ = Printexc.print main()
-}
 	
+}
