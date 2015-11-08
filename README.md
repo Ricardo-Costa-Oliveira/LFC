@@ -85,7 +85,7 @@ Espera-se nesta etapa que seja construido o analisador semiantico para a linguag
 
 4    Entrega do trabalho
 ------	
-O  trabalho  deve  ser  entregue  num  arquivo  tar  comprimido  (nome.tgz)  em que nome e o identificador do vosso grupo.  este arquivo deve conter todos os ficheiros fontes necessarios a compilacao assim como um  [Makefile completo .](./Makefile) (as entradas all e clean devem estar presentes).
+O  trabalho  deve  ser  entregue  num  arquivo  tar  comprimido  (nome.tgz)  em que nome e o identificador do vosso grupo.  este arquivo deve conter todos os ficheiros fontes necessarios a compilacao assim como um  [Makefile completo](./Makefile) (as entradas all e clean devem estar presentes).
 Este arquivo devera igualmente conter o relatorio que descreve o trabalho feito,  as  escolhas  (de  desenho,  etc.)   tomadas,  a  documentacao  do  codigo e  o  manual  do  utilizador.
 
 E  igualmente  esperada  que  seja  preparada  uma apresentacao para a respetiva apresentacao.
