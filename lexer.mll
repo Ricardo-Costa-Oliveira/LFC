@@ -25,6 +25,7 @@ tbl
 		| THEN
 		| ELSE
 		| VECTOR
+		| RETURN
 		| DEF
 		| INT of int
 		| ID of string
@@ -39,6 +40,7 @@ tbl
 		    ("then", THEN);
 		    ("else", ELSE);
 		    ("def", DEF);
+		    ("return", RETURN);
 		    ("vector", VECTOR)
 		]
 
