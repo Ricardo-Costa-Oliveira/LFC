@@ -2,7 +2,12 @@
 
 {
 	open Printf
-	exception SyntaxError of string
+
+	let num_lines = ref 1
+	let num_chars = ref 0
+
+	let print_lexing_error st =
+		printf "[%d,%d] %s \n" !num_lines !num_chars st
 
 	(*
 	   To make the generated automata small,
@@ -20,6 +25,7 @@ tbl
 		| THEN
 		| ELSE
 		| VECTOR
+		| DEF
 		| INT of int
 		| ID of string
 		| CHAR of char
@@ -32,11 +38,11 @@ tbl
 		    ("if", IF);
 		    ("then", THEN);
 		    ("else", ELSE);
+		    ("def", DEF);
 		    ("vector", VECTOR)
 		]
 
-	let num_lines = ref 0
-	let num_chars = ref 0
+
 
 }
 (* definitions section *)
@@ -61,17 +67,17 @@ tbl
 		| digit+ as inum (* integer number *)
 			{ let num = int_of_string inum in
 			  incr num_chars;
-			  printf "[%d,%d] integer: %s (%d)\n" !num_lines !num_chars inum num ;
+			  printf "integer: %s (%d)\n" inum num ;
 			  INT num
 			}
 		| id as word
 			{ try
 			let token = Hashtbl.find keyword_table word in
-			  printf "[%d,%d] keyword: %s\n" !num_lines !num_chars word;
+			  printf "keyword: %s\n" word;
 			  token
 			  with Not_found ->
 			    (* if not a keyword the is an identifier *)
-			    printf "[%d,%d] identifier %s\n" !num_lines !num_chars word;
+			    printf "identifier %s\n" word;
 			    ID word
 			}
 		| '+' as op
@@ -117,6 +123,11 @@ tbl
 		| "(*" (* activate "comment" rule *)
 			{ comment lexbuf
 			}
+		| "*)" (* unbalanced comments*)
+			{ ( print_lexing_error "Unbalanced comments" );
+			  incr num_chars;
+			  fixe lexbuf
+			}
 
 		(* Any text not matched by a ocamllex scanner generates exception
 		   Failure "lexing: empty token" , so we have to supply this last
@@ -124,9 +135,8 @@ tbl
 		*)
 
 		| _ as c
-			{ printf "[%d,%d] Unrecognized character %c\n" !num_lines !num_chars c;
+			{ ( print_lexing_error "Unrecognized character" );
 			  CHAR c
-			  (*raise (SyntaxError ("Unexpected char: " ^ Lexing.lexeme lexbuf))*)
 			}
 		| eof
 			{ raise End_of_file }
@@ -139,9 +149,17 @@ tbl
 			| "*)" (* go to the "token" rule *)
 				{ fixe lexbuf
 				}
+ 			| [ '\n' ]
+				{ incr num_lines;
+				  incr num_chars;
+				  comment lexbuf
+				} 
 			| _ (* skip comments *)
-				{ comment lexbuf
+				{ incr num_chars;
+				  comment lexbuf
 				}
+			| eof
+				{ raise End_of_file }
 
 (* trailer section *)
 
